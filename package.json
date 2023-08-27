@@ -1,0 +1,19 @@
+{
+  "name": "k-ebest-im",
+  "version": "0.0.0",
+  "description": "이베스트 투자증권 OPEN API Library",
+  "main": "ebest.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k-im-minsu/k-ebest-im.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/k-im-minsu/k-ebest-im/issues"
+  },
+  "homepage": "https://github.com/k-im-minsu/k-ebest-im#readme",
+  "dependencies": {
+    "k-lib-im": "^0.0.1",
+    "ws": "^8.13.0"
+  }
+}

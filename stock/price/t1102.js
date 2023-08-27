@@ -1,0 +1,200 @@
+const lib=require("k-lib-im");
+/**
+ * @typedef {Object} t1102 [주식] 시세 - 주식현재가_시세조회
+ * @property {string} rsp_cd tr 코드
+ * @property {string} rsp_msg tr 메세지
+ * @property {t1102_OutBlock} t1102OutBlock
+ */
+/**
+ * @typedef {Object} t1102_OutBlock [주식] 시세 - 주식현재가_시세조회 
+ * @property {string} hname 한글명(20)
+ * @property {number} price 현재가(8)
+ * @property {string} sign 전일대비구분(1)
+ * @property {number} change 전일대비(8)
+ * @property {number} diff 등락율(6.2)
+ * @property {number} volume 누적거래량(12)
+ * @property {number} recprice 기준가(평가가격)(8)
+ * @property {number} avg 가중평균(8)
+ * @property {number} uplmtprice 상한가(최고호가가격)(8)
+ * @property {number} dnlmtprice 하한가(최저호가가격)(8)
+ * @property {number} jnilvolume 전일거래량(12)
+ * @property {number} volumediff 거래량차(12)
+ * @property {number} open 시가(8)
+ * @property {string} opentime 시가시간(6)
+ * @property {number} high 고가(8)
+ * @property {string} hightime 고가시간(6)
+ * @property {number} low 저가(8)
+ * @property {string} lowtime 저가시간(6)
+ * @property {number} high52w 52최고가(8)
+ * @property {string} high52wdate 52최고가일(8)
+ * @property {number} low52w 52최저가(8)
+ * @property {string} low52wdate 52최저가일(8)
+ * @property {number} exhratio 소진율(6.2)
+ * @property {number} per PER(6.2)
+ * @property {number} pbrx PBRX(6.2)
+ * @property {number} listing 상장주식수(천)(12)
+ * @property {number} jkrate 증거금율(8)
+ * @property {string} memedan 수량단위(5)
+ * @property {string} offernocd1 매도증권사코드1(3)
+ * @property {string} bidnocd1 매수증권사코드1(3)
+ * @property {string} offerno1 매도증권사명1(6)
+ * @property {string} bidno1 매수증권사명1(6)
+ * @property {number} dvol1 총매도수량1(8)
+ * @property {number} svol1 총매수수량1(8)
+ * @property {number} dcha1 매도증감1(8)
+ * @property {number} scha1 매수증감1(8)
+ * @property {number} ddiff1 매도비율1(6.2)
+ * @property {number} sdiff1 매수비율1(6.2)
+ * @property {string} offernocd2 매도증권사코드2(3)
+ * @property {string} bidnocd2 매수증권사코드2(3)
+ * @property {string} offerno2 매도증권사명2(6)
+ * @property {string} bidno2 매수증권사명2(6)
+ * @property {number} dvol2 총매도수량2(8)
+ * @property {number} svol2 총매수수량2(8)
+ * @property {number} dcha2 매도증감2(8)
+ * @property {number} scha2 매수증감2(8)
+ * @property {number} ddiff2 매도비율2(6.2)
+ * @property {number} sdiff2 매수비율2(6.2)
+ * @property {string} offernocd3 매도증권사코드3(3)
+ * @property {string} bidnocd3 매수증권사코드3(3)
+ * @property {string} offerno3 매도증권사명3(6)
+ * @property {string} bidno3 매수증권사명3(6)
+ * @property {number} dvol3 총매도수량3(8)
+ * @property {number} svol3 총매수수량3(8)
+ * @property {number} dcha3 매도증감3(8)
+ * @property {number} scha3 매수증감3(8)
+ * @property {number} ddiff3 매도비율3(6.2)
+ * @property {number} sdiff3 매수비율3(6.2)
+ * @property {string} offernocd4 매도증권사코드4(3)
+ * @property {string} bidnocd4 매수증권사코드4(3)
+ * @property {string} offerno4 매도증권사명4(6)
+ * @property {string} bidno4 매수증권사명4(6)
+ * @property {number} dvol4 총매도수량4(8)
+ * @property {number} svol4 총매수수량4(8)
+ * @property {number} dcha4 매도증감4(8)
+ * @property {number} scha4 매수증감4(8)
+ * @property {number} ddiff4 매도비율4(6.2)
+ * @property {number} sdiff4 매수비율4(6.2)
+ * @property {string} offernocd5 매도증권사코드5(3)
+ * @property {string} bidnocd5 매수증권사코드5(3)
+ * @property {string} offerno5 매도증권사명5(6)
+ * @property {string} bidno5 매수증권사명5(6)
+ * @property {number} dvol5 총매도수량5(8)
+ * @property {number} svol5 총매수수량5(8)
+ * @property {number} dcha5 매도증감5(8)
+ * @property {number} scha5 매수증감5(8)
+ * @property {number} ddiff5 매도비율5(6.2)
+ * @property {number} sdiff5 매수비율5(6.2)
+ * @property {number} fwdvl 외국계매도합계수량(12)
+ * @property {number} ftradmdcha 외국계매도직전대비(12)
+ * @property {number} ftradmddiff 외국계매도비율(6.2)
+ * @property {number} fwsvl 외국계매수합계수량(12)
+ * @property {number} ftradmscha 외국계매수직전대비(12)
+ * @property {number} ftradmsdiff 외국계매수비율(6.2)
+ * @property {number} vol 회전율(6.2)
+ * @property {string} shcode 단축코드(6)
+ * @property {number} value 누적거래대금(12)
+ * @property {number} jvolume 전일동시간거래량(12)
+ * @property {number} highyear 연중최고가(8)
+ * @property {string} highyeardate 연중최고일자(8)
+ * @property {number} lowyear 연중최저가(8)
+ * @property {string} lowyeardate 연중최저일자(8)
+ * @property {number} target 목표가(8)
+ * @property {number} capital 자본금(12)
+ * @property {number} abscnt 유동주식수(12)
+ * @property {number} parprice 액면가(8)
+ * @property {string} gsmm 결산월(2)
+ * @property {number} subprice 대용가(8)
+ * @property {number} total 시가총액(12)
+ * @property {string} listdate 상장일(8)
+ * @property {string} name 전분기명(10)
+ * @property {number} bfsales 전분기매출액(12)
+ * @property {number} bfoperatingincome 전분기영업이익(12)
+ * @property {number} bfordinaryincome 전분기경상이익(12)
+ * @property {number} bfnetincome 전분기순이익(12)
+ * @property {number} bfeps 전분기EPS(13.2)
+ * @property {string} name2 전전분기명(10)
+ * @property {number} bfsales2 전전분기매출액(12)
+ * @property {number} bfoperatingincome2 전전분기영업이익(12)
+ * @property {number} bfordinaryincome2 전전분기경상이익(12)
+ * @property {number} bfnetincome2 전전분기순이익(12)
+ * @property {number} bfeps2 전전분기EPS(13.2)
+ * @property {number} salert 전년대비매출액(7.2)
+ * @property {number} opert 전년대비영업이익(7.2)
+ * @property {number} ordrt 전년대비경상이익(7.2)
+ * @property {number} netrt 전년대비순이익(7.2)
+ * @property {number} epsrt 전년대비EPS(7.2)
+ * @property {string} info1 락구분(10)
+ * @property {string} info2 관리/급등구분(10)
+ * @property {string} info3 정지/연장구분(10)
+ * @property {string} info4 투자/불성실구분(12)
+ * @property {string} janginfo 장구분(10)
+ * @property {number} t_per T.PER(6.2)
+ * @property {string} tonghwa 통화ISO코드(3)
+ * @property {number} dval1 총매도대금1(18)
+ * @property {number} sval1 총매수대금1(18)
+ * @property {number} dval2 총매도대금2(18)
+ * @property {number} sval2 총매수대금2(18)
+ * @property {number} dval3 총매도대금3(18)
+ * @property {number} sval3 총매수대금3(18)
+ * @property {number} dval4 총매도대금4(18)
+ * @property {number} sval4 총매수대금4(18)
+ * @property {number} dval5 총매도대금5(18)
+ * @property {number} sval5 총매수대금5(18)
+ * @property {number} davg1 총매도평단가1(8)
+ * @property {number} savg1 총매수평단가1(8)
+ * @property {number} davg2 총매도평단가2(8)
+ * @property {number} savg2 총매수평단가2(8)
+ * @property {number} davg3 총매도평단가3(8)
+ * @property {number} savg3 총매수평단가3(8)
+ * @property {number} davg4 총매도평단가4(8)
+ * @property {number} savg4 총매수평단가4(8)
+ * @property {number} davg5 총매도평단가5(8)
+ * @property {number} savg5 총매수평단가5(8)
+ * @property {number} ftradmdval 외국계매도대금(18)
+ * @property {number} ftradmsval 외국계매수대금(18)
+ * @property {number} ftradmdvag 외국계매도평단가(8)
+ * @property {number} ftradmsvag 외국계매수평단가(8)
+ * @property {string} info5 투자주의환기(8)
+ * @property {string} spac_gubun 기업인수목적회사여부(1)
+ * @property {number} issueprice 발행가격(8)
+ * @property {string} alloc_gubun 배분적용구분코드(1:배분발생2:배분해제그외:미발생)(1)
+ * @property {string} alloc_text 배분적용구분(8)
+ * @property {string} shterm_text 단기과열/VI발동(10)
+ * @property {number} svi_uplmtprice 정적VI상한가(8)
+ * @property {number} svi_dnlmtprice 정적VI하한가(8)
+ * @property {string} low_lqdt_gu 저유동성종목여부(1)
+ * @property {string} abnormal_rise_gu 이상급등종목여부(1)
+ * @property {string} lend_text 대차불가표시(8)
+ * @property {string} ty_text ETF/ETN투자유의(8)
+ */
+/**
+ * [주식] 시세 - 주식현재가_시세조회 (초당 3건 제한)
+ * @param {string} shcode 단축코드(6) - 
+ * @param {string} tr_cont 연속 거래 여부 [Y,N]
+ * @param {string} tr_cont_key 연속일 경우 그전에 내려온 연속키 값 올림
+ * @param {string} mac_address 	법인인 경우 필수 세팅
+ * @returns {Promise<t1102|null>}  실패시 null 반환
+ */
+ exports.주식현재가_시세조회 = async(shcode="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+    const header={
+        "content-type":"application/json; charset=UTF-8",
+        "authorization":await __ebestim.get_token(),
+        "tr_cd":"t1102",
+        "tr_cont":tr_cont,
+        "tr_cont_key":tr_cont_key,
+        "mac_address":mac_address
+    }
+    const body={
+    "t1102InBlock":{
+        "shcode":shcode
+       }
+    }
+  const result= await lib.http.post(__ebestim.url+"/stock/market-data",header,body);
+  if(result.status===200){
+    return await result.json();
+  }else{
+    console.log(result.status+" - "+await result.text());
+    return null;
+  }
+}
