@@ -1,6 +1,6 @@
-/**@typedef {import('./sector/_sector.js')} Sector*/
-/**@typedef {import('./stock/_stock.js')} Stock*/
-/**@typedef {import('./etc/_etc.js')} Etc*/
+/**@typedef {import('./sector/sector.js')} Sector*/
+/**@typedef {import('./stock/stock.js')} Stock*/
+/**@typedef {import('./etc/etc.js')} Etc*/
 
 /**
  * @typedef {Object} Ebest
@@ -17,8 +17,8 @@
 */
 module.exports=function(appkey,appsecretkey,ismoyee=false,usesocket=true){
     require('./core.js')(appkey,appsecretkey,ismoyee,usesocket);
-    this.업종=require('./sector/_sector.js');
-    this.주식=require('./stock/_stock.js');
-    this.기타=require('./etc/_etc.js');
+    this.업종=require('./sector/sector.js');
+    this.주식=require('./stock/stock.js');
+    this.기타=require('./etc/etc.js');
     return this;
 };
