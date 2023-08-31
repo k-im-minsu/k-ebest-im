@@ -108,7 +108,7 @@ const lib=require("k-lib-im");
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1969|null>}  실패시 null 반환
  */
- exports.ELW지표검색 = async(chkitem="",cbitem="",chkissuer="",cbissuer="",chkcallput="",cbcallput="",chkexec="",cbexec="",chktype="",cbtype="",chksettle="",cbsettle="",chklast="",cblast="",chkelwexec="",elwexecs=0,elwexece=0,chkvolume="",volumes=0,volumee=0,chkrate="",rates=0,ratee=0,chkpremium="",premiums=0,premiume=0,chkparity="",paritys=0,paritye=0,chkberate="",berates=0,beratee=0,chkcapt="",capts=0,capte=0,chkegearing="",egearings=0,egearinge=0,chkgearing="",gearings=0,gearinge=0,chkdelta="",deltas=0,deltae=0,chktheta="",thetas=0,thetae=0,chkduedate="",duedates="",duedatee="",onetickgubun="",lp_liquidity="",chklp_code="",lp_code="",chkkoba="",cbkoba="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(chkitem="",cbitem="",chkissuer="",cbissuer="",chkcallput="",cbcallput="",chkexec="",cbexec="",chktype="",cbtype="",chksettle="",cbsettle="",chklast="",cblast="",chkelwexec="",elwexecs=0,elwexece=0,chkvolume="",volumes=0,volumee=0,chkrate="",rates=0,ratee=0,chkpremium="",premiums=0,premiume=0,chkparity="",paritys=0,paritye=0,chkberate="",berates=0,beratee=0,chkcapt="",capts=0,capte=0,chkegearing="",egearings=0,egearinge=0,chkgearing="",gearings=0,gearinge=0,chkdelta="",deltas=0,deltae=0,chktheta="",thetas=0,thetae=0,chkduedate="",duedates="",duedatee="",onetickgubun="",lp_liquidity="",chklp_code="",lp_code="",chkkoba="",cbkoba="",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),

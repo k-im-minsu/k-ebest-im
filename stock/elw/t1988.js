@@ -47,7 +47,7 @@ const lib=require("k-lib-im");
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1988|null>}  실패시 null 반환
  */
- exports.기초자산리스트조회 = async(mkt_gb="",chk_price="",from_price="",to_price="",chk_vol="",from_vol="",to_vol="",chk_rate="",from_rate=0,to_rate=0,chk_amt="",from_amt="",to_amt="",chk_up="",chk_down="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports= async(mkt_gb="",chk_price="",from_price="",to_price="",chk_vol="",from_vol="",to_vol="",chk_rate="",from_rate=0,to_rate=0,chk_amt="",from_amt="",to_amt="",chk_up="",chk_down="",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),

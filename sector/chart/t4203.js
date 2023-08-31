@@ -51,7 +51,7 @@ const lib=require("k-lib-im");
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t4203|null>}  실패시 null 반환
  */
- exports.업종챠트_종합 = async(shcode="",gubun="",ncnt=0,qrycnt=0,tdgb="",sdate="",edate="",cts_date="",cts_time="",cts_daygb="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(shcode="",gubun="",ncnt=0,qrycnt=0,tdgb="",sdate="",edate="",cts_date="",cts_time="",cts_daygb="",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),

@@ -71,7 +71,7 @@ const lib=require("k-lib-im");
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<CSPAT00601|null>}  실패시 null 반환
  */
- exports.현물주문 = async(IsuNo="",OrdQty=0,OrdPrc=0,BnsTpCode="",OrdprcPtnCode="",MgntrnCode="",LoanDt="",OrdCndiTpCode="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports= async(IsuNo="",OrdQty=0,OrdPrc=0,BnsTpCode="",OrdprcPtnCode="",MgntrnCode="",LoanDt="",OrdCndiTpCode="",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),

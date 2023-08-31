@@ -25,12 +25,12 @@ AppSecretKey - 이베스트 open api 발급 비밀 키
 ### 3. 실시간 요청
 
     ...(1.)  
-    const sub=await ebest.주식.실시간.KOSPI체결('005930',(data)=>{  
+    const sub=await ebest.주식.실시간.KOSPI체결.등록('005930',(data)=>{  
         //등록 후 체결이 있을경우 함수 실행  
         console.log(obj.price);//현재가  
     });  
     console.log(sub);//실시간 등록 성공 여부  
-    const unsub=await ebest.주식.실시간.KOSPI체결_해제('005930');  
-    console.log(unsub);//실시간 등록 해제 성공 여부  
+    const unsub=await ebest.주식.실시간.KOSPI체결.해제('005930');  
+    console.log(unsub);//실시간 해제 성공 여부  
 
 실시간 해제시에는 등록했을때의 동일 키 사용 필수

@@ -41,7 +41,7 @@ const lib=require("k-lib-im");
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1471|null>}  실패시 null 반환
  */
- exports.시간대별호가잔량추이 = async(shcode="",gubun="",time="",cnt="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports= async(shcode="",gubun="",time="",cnt="",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),

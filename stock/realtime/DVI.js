@@ -15,7 +15,7 @@
  * @param {DVIFunc} recv 서버에서 데이터 받으면 해당 함수 호출
  * @returns {Promise<boolean>}  실패, 성공 여부
  */
- exports.시간외단일가VI발동해제 = async(tr_key="",recv)=>{
+ exports.등록 = async(tr_key="",recv)=>{
     return await __ebestim.realadd("DVI",tr_key,recv);
 }
 /**
@@ -23,6 +23,6 @@
  * @param {string} tr_key 실시간 등록시 입력했던 키값
  * @returns {Promise<boolean>}  실패, 성공 여부
  */
- exports.시간외단일가VI발동해제_해제 = async(tr_key)=>{
+ exports.해제 = async(tr_key)=>{
     return await __ebestim.realdel("DVI",tr_key);
 }

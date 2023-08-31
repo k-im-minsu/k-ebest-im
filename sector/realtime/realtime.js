@@ -1,5 +1,4 @@
-
 module.exports=(function(){
-    Object.assign(this,require("./BM_.js"))
+    this.업종별투자자별매매현황=require("./BM_1.js")
     return this;
 })();

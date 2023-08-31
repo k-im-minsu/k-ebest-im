@@ -149,7 +149,7 @@ const lib=require("k-lib-im");
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<CDPCQ04700|null>}  실패시 null 반환
  */
- exports.계좌_거래내역 = async(QryTp="",QrySrtDt="",QryEndDt="",SrtNo=0,PdptnCode="",IsuLgclssCode="",IsuNo="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(QryTp="",QrySrtDt="",QryEndDt="",SrtNo=0,PdptnCode="",IsuLgclssCode="",IsuNo="",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),

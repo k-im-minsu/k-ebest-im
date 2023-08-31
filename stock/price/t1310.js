@@ -39,7 +39,7 @@ const lib=require("k-lib-im");
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1310|null>}  실패시 null 반환
  */
- exports.주식당일전일분틱조회 = async(daygb="",timegb="",shcode="",endtime="",cts_time="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports= async(daygb="",timegb="",shcode="",endtime="",cts_time="",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),

@@ -47,7 +47,7 @@ const lib=require("k-lib-im");
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t3518|null>}  실패시 null 반환
  */
- exports.해외실시간지수 = async(kind="",symbol="",cnt=0,jgbn="",nmin=0,cts_date="",cts_time="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(kind="",symbol="",cnt=0,jgbn="",nmin=0,cts_date="",cts_time="",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),

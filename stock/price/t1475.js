@@ -39,7 +39,7 @@ const lib=require("k-lib-im");
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1475|null>}  실패시 null 반환
  */
- exports.체결강도추이 = async(shcode="",vptype="",datacnt=0,date=0,time=0,rankcnt=0,gubun="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports= async(shcode="",vptype="",datacnt=0,date=0,time=0,rankcnt=0,gubun="",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),

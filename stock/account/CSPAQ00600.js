@@ -63,7 +63,7 @@ const lib=require("k-lib-im");
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<CSPAQ00600|null>}  실패시 null 반환
  */
- exports.계좌별신용한도조회 = async(LoanDtlClssCode="",IsuNo="",OrdPrc=0,CommdaCode="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(LoanDtlClssCode="",IsuNo="",OrdPrc=0,CommdaCode="",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),

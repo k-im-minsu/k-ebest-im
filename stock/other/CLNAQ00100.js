@@ -57,7 +57,7 @@ const lib=require("k-lib-im");
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<CLNAQ00100|null>}  실패시 null 반환
  */
- exports.예탁담보융자가능종목현황조회 = async(QryTp="",IsuNo="",SecTpCode="",LoanIntrstGrdCode="",LoanTp="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(QryTp="",IsuNo="",SecTpCode="",LoanIntrstGrdCode="",LoanTp="",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),

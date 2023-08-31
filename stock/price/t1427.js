@@ -48,7 +48,7 @@ const lib=require("k-lib-im");
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1427|null>}  실패시 null 반환
  */
- exports.상_하한가직전 = async(qrygb="",gubun="",signgubun="",diff=0,jc_num=0,sprice=0,eprice=0,volume=0,idx=0,jshex="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(qrygb="",gubun="",signgubun="",diff=0,jc_num=0,sprice=0,eprice=0,volume=0,idx=0,jshex="",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),

@@ -84,7 +84,7 @@ const lib=require("k-lib-im");
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<CSPAQ13700|null>}  실패시 null 반환
  */
- exports.현물계좌_주문체결내역_조회_API = async(OrdMktCode="",BnsTpCode="",IsuNo="",ExecYn="",OrdDt="",SrtOrdNo2=0,BkseqTpCode="",OrdPtnCode="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(OrdMktCode="",BnsTpCode="",IsuNo="",ExecYn="",OrdDt="",SrtOrdNo2=0,BkseqTpCode="",OrdPtnCode="",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),

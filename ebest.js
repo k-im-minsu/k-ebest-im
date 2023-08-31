@@ -11,7 +11,7 @@
  * @typedef {Object} Sector
  * @property {sector_price} 시세
  * @property {sector_chart} 차트
- * @property {sector_realtime} 실시간시세
+ * @property {sector_realtime} 실시간
  */
 /**
  * @typedef {Object} sector_price
@@ -37,22 +37,22 @@
 //#region 주식
 /**
  * @typedef {Object} Stock
- * @property {stock_program} 프로그램
- * @property {stock_tradeinfo} 투자정보
- * @property {stock_investor} 투자자
- * @property {stock_chart} 차트
- * @property {stock_order} 주문
- * @property {stock_search} 종목검색
- * @property {stock_foreigner} 외인/기관
- * @property {stock_realtime} 실시간시세
  * @property {stock_price} 시세
+ * @property {stock_exchange} 거래원
+ * @property {stock_tradeinfo} 투자정보
+ * @property {stock_program} 프로그램
+ * @property {stock_investor} 투자자
+ * @property {stock_foreigner} 외인기관
+ * @property {stock_elw} ELW
+ * @property {stock_etf} ETF
  * @property {stock_sector} 섹터
+ * @property {stock_search} 종목검색
  * @property {stock_high} 상위종목
  * @property {stock_other} 기타
  * @property {stock_account} 계좌
- * @property {stock_exchange} 거래원
- * @property {stock_etf} ETF
- * @property {stock_elw} ELW
+ * @property {stock_chart} 차트
+ * @property {stock_order} 주문
+ * @property {stock_realtime} 실시간
  */
 /**
  * @typedef {Object} stock_program
@@ -274,7 +274,7 @@
 /**
  * @typedef {Object} Etc
  * @property {etc_timesearch} 시간조회
- * @property {etc_realtime} 실시간시세
+ * @property {etc_realtime} 실시간
  */
 /**
  * @typedef {Object} etc_timesearch

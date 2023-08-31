@@ -58,7 +58,7 @@ const lib=require("k-lib-im");
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t8411|null>}  실패시 null 반환
  */
- exports.주식챠트_틱_n틱 = async(shcode="",ncnt=0,qrycnt=0,nday="",sdate="",stime="",edate="",etime="",cts_date="",cts_time="",comp_yn="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(shcode="",ncnt=0,qrycnt=0,nday="",sdate="",stime="",edate="",etime="",cts_date="",cts_time="",comp_yn="",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),
