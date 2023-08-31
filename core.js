@@ -1,6 +1,5 @@
 module.exports=function(appkey,appsecretkey,ismoyee,usesocket){
     const WebSocket = require('ws');
-   // const fs=require('fs');
 const lib=require('k-lib-im')
 const url='https://openapi.ebestsec.co.kr:8080';
 const url_real='wss://openapi.ebestsec.co.kr:9443/websocket';
