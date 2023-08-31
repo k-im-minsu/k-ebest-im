@@ -4,7 +4,7 @@ const lib=require('k-lib-im')
 const url='https://openapi.ebestsec.co.kr:8080';
 const url_real='wss://openapi.ebestsec.co.kr:9443/websocket';
 const url_realm='wss://openapi.ebestsec.co.kr:29443/websocket';
-const getToken=async ()=>{
+const getToken=async (isBearer=true)=>{
     if(__ebestim.expires_<=lib.time_tick()){
         var ok=true;
        /* if(__ebestim.expires_===0){
@@ -27,7 +27,11 @@ const getToken=async ()=>{
            // fs.writeFile('./token.json',JSON.stringify(token))
         }
     }
-    return 'Bearer '+token.access_token;
+    if(isBearer){
+        return 'Bearer '+token.access_token;
+    }else{
+        return token.access_token;
+    }
 }
 const login= async()=>{
     const header={
@@ -153,7 +157,7 @@ const realadd=async(trcode,trkey='',result)=>{
     }
     if(isconnect){
         socket.send(JSON.stringify({header:{
-            token:await getToken(),
+            token:await getToken(false),
             tr_type:(trkey.length===0)?'1':'3'
         },body:{
             tr_cd:trcode,
@@ -175,7 +179,7 @@ const realdel=async(trcode,trkey='')=>{
     }
     if(isconnect){
         socket.send(JSON.stringify({header:{
-            token:await getToken(),
+            token:await getToken(false),
             tr_type:(trkey.length===0)?'2':'4'
         },body:{
             tr_cd:trcode,
