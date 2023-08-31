@@ -39,7 +39,7 @@ const login= async()=>{
         'appsecretkey':appsecretkey,
         'scope':'oob',
     }
-  const result= await lib.http.urlencoded(url+'/oauth2/token',header,body);
+  const result= await lib.http.post_urlencoded(url+'/oauth2/token',header,body);
   if(result.status===200){
    return await result.json();
   }else{
@@ -58,7 +58,7 @@ const logout= async()=>{
         'appsecretkey':appsecretkey,
         'token':token.access_token,
     }
-  const result= await lib.http.urlencoded(url+'/oauth2/revoke',header,body);
+  const result= await lib.http.post_urlencoded(url+'/oauth2/revoke',header,body);
   if(result.status===200){
     return true;
   }else{
