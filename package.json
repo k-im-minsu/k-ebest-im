@@ -1,6 +1,6 @@
 {
   "name": "k-ebest-im",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "이베스트 투자증권 OPEN API Library",
   "main": "ebest.js",
   "repository": {
@@ -15,6 +15,5 @@
   "dependencies": {
     "k-lib-im": "^0.0.1",
     "ws": "^8.13.0"
-  },
-  "type":"module"
+  }
 }
