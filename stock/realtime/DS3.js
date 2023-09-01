@@ -39,6 +39,7 @@
  * [주식] 실시간 시세 - KOSPI시간외단일가체결 실시간 등록 해제
  * @param {string} tr_key 실시간 등록시 입력했던 키값
  * @returns {Promise<boolean>}  실패, 성공 여부
- */해제 = async(tr_key)=>{
+ */
+ exports.해제 = async(tr_key)=>{
     return await __ebestim.realdel("DS3",tr_key);
 }
