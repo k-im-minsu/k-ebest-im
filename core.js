@@ -17,7 +17,7 @@ const getToken=async (isBearer=true)=>{
             }
         }*/
         if(ok){
-           var token= await login();
+           token= await login();
             while(token===null){
                await lib.sleep(10000);
                token= await login();
@@ -106,7 +106,8 @@ if(usesocket){
           }
         };
         socket.onmessage = function (event) {
-           const j= event.data
+            const j= JSON.parse(event.data)
+            if(!j.body)return;
            const ev=result_event[j.header.tr_cd];
            if(ev){
             const event=ev[j.header.tr_key];
