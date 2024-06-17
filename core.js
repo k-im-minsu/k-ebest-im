@@ -1,9 +1,9 @@
 module.exports=function(appkey,appsecretkey,ismoyee,usesocket){
     const WebSocket = require('ws');
 const lib=require('k-lib-im')
-const url='https://openapi.ebestsec.co.kr:8080';
-const url_real='wss://openapi.ebestsec.co.kr:9443/websocket';
-const url_realm='wss://openapi.ebestsec.co.kr:29443/websocket';
+const url='https://openapi.ls-sec.co.kr:8080';
+const url_real='wss://openapi.ls-sec.co.kr:9443/websocket';
+const url_realm='wss://openapi.ls-sec.co.kr:29443/websocket';
 const getToken=async (isBearer=true)=>{
     if(__ebestim.expires_<=lib.time_tick()){
         var ok=true;
