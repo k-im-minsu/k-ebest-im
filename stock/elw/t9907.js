@@ -34,6 +34,8 @@ module.exports = async(dummy="",tr_cont="N",tr_cont_key="",mac_address="")=>{
     }
   const result= await lib.http.post(__ebestim.url+"/stock/elw",header,body);
   if(result.status===200){
+    global.__tr_cont=result.headers.get('tr_cont')
+    global.__tr_cont_key=result.headers.get('tr_cont_key')
     return await result.json();
   }else{
     console.log(result.status+" - "+await result.text());

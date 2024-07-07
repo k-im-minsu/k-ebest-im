@@ -74,6 +74,8 @@ module.exports = async(shcode="",gubun="",fromdt="",todt="",tr_cont="N",tr_cont_
     }
   const result= await lib.http.post(__ebestim.url+"/stock/frgr-itt",header,body);
   if(result.status===200){
+    global.__tr_cont=result.headers.get('tr_cont')
+    global.__tr_cont_key=result.headers.get('tr_cont_key')
     return await result.json();
   }else{
     console.log(result.status+" - "+await result.text());

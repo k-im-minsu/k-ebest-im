@@ -69,6 +69,8 @@ module.exports = async(kind="",symbol="",cnt=0,jgbn="",nmin=0,cts_date="",cts_ti
     }
   const result= await lib.http.post(__ebestim.url+"/stock/investinfo",header,body);
   if(result.status===200){
+    global.__tr_cont=result.headers.get('tr_cont')
+    global.__tr_cont_key=result.headers.get('tr_cont_key')
     return await result.json();
   }else{
     console.log(result.status+" - "+await result.text());

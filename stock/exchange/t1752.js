@@ -56,6 +56,8 @@ const lib=require("k-lib-im");
     }
   const result= await lib.http.post(__ebestim.url+"/stock/exchange",header,body);
   if(result.status===200){
+    global.__tr_cont=result.headers.get('tr_cont')
+    global.__tr_cont_key=result.headers.get('tr_cont_key')
     return await result.json();
   }else{
     console.log(result.status+" - "+await result.text());
