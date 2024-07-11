@@ -1,5 +1,5 @@
-## LS투자증권 (구 이베스트 투자증권) OPEN API Library
-LS투자증권 Open API(RESTful) 사용을 간단히 하기 위한 node.js 모듈입니다  
+## LS증권 (구 이베스트 투자증권) OPEN API Library
+LS증권 Open API(RESTful) 사용을 간단히 하기 위한 node.js 모듈입니다  
 
 ----
   
@@ -7,8 +7,8 @@ LS투자증권 Open API(RESTful) 사용을 간단히 하기 위한 node.js 모�
 
     const ebest=require('k-ebest-im')({AppKey},{AppSecretKey},{모의투자여부},{실시간사용여부});  
   
-AppKey - LS투자증권 open api 발급 키  
-AppSecretKey - LS투자증권 open api 발급 비밀 키  
+AppKey - LS증권 open api 발급 키  
+AppSecretKey - LS증권 open api 발급 비밀 키  
 모의투자여부 - [(false)/true] true일때 웹소켓 주소 모의투자 서버로 사용  
 실시간사용여부 - [false/(true)] 웹소켓 연결을 사용할지 여부(실시간 사용시 true)  
   
@@ -37,6 +37,6 @@ AppSecretKey - LS투자증권 open api 발급 비밀 키
 
     //요청한 tr이 완료된 후 (global) __tr_cont, __tr_cont_key 로 다음 연속 조회가 가능합니다
     var tr = await ebest.주식.시세.주식분별주가조회(...);
-    while(global.__tr_cont=='Y'){
+    while(global.__tr_cont==='Y'){
         tr = await ebest.주식.시세.주식분별주가조회(..., global.__tr_cont, global.__tr_cont_key);  
     }

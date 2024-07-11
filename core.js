@@ -110,6 +110,7 @@ if(usesocket){
             if(!j.body)return;
            const ev=result_event[j.header.tr_cd];
            if(ev){
+            if(!j.header.tr_key)j.header.tr_key=''
             const event=ev[j.header.tr_key];
             if(event){
                 event.ev(j.body);
