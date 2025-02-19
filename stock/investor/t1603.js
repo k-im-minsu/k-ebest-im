@@ -10,6 +10,7 @@ const lib=require("k-lib-im");
  * @typedef {Object} t1603_OutBlock [주식] 투자자 - 시간대별투자자매매추이상세 
  * @property {number} cts_idx CTSIDX(4)
  * @property {string} cts_time CTSTIME(8)
+ * @property {string} ex_upcode 거래소별업종코드(4)
  */
 /**
  * @typedef {Object} t1603_OutBlock1 [주식] 투자자 - 시간대별투자자매매추이상세 
@@ -31,12 +32,13 @@ const lib=require("k-lib-im");
  * @param {number} cts_idx CTSIDX(4) - 처음 조회시는 Space 연속 조회시에 이전 조회한 OutBlock의 cts_idx 값으로 설정
  * @param {number} cnt 조회건수(3) - 020
  * @param {string} upcode 업종코드(3) - 
+ * @param {string} exchgubun 거래소구분코드(1)
  * @param {string} tr_cont 연속 거래 여부 [Y,N]
  * @param {string} tr_cont_key 연속일 경우 그전에 내려온 연속키 값 올림
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1603|null>}  실패시 null 반환
  */
-module.exports = async(market="",gubun1="",gubun2="",cts_time="",cts_idx=0,cnt=0,upcode="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(market="",gubun1="",gubun2="",cts_time="",cts_idx=0,cnt=0,upcode="",exchgubun="K",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),
@@ -53,7 +55,8 @@ module.exports = async(market="",gubun1="",gubun2="",cts_time="",cts_idx=0,cnt=0
         "cts_time":cts_time,
         "cts_idx":cts_idx,
         "cnt":cnt,
-        "upcode":upcode
+        "upcode":upcode,
+        "exchgubun":exchgubun
        }
     }
   const result= await lib.http.post(__ebestim.url+"/stock/investor",header,body);

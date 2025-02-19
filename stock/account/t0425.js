@@ -29,7 +29,7 @@ const lib=require("k-lib-im");
  * @property {number} cheprice 체결가격(9)
  * @property {number} ordrem 미체결잔량(9)
  * @property {number} cfmqty 확인수량(9)
- * @property {string} status 상태(10)
+ * @property {string} status 상태(20)
  * @property {number} orgordno 원주문번호(10)
  * @property {string} ordgb 유형(20)
  * @property {string} ordtime 주문시간(8)
@@ -40,6 +40,7 @@ const lib=require("k-lib-im");
  * @property {string} orggb 주문구분(2)
  * @property {string} singb 신용구분(2)
  * @property {string} loandt 대출일자(8)
+ * @property {string} exchname 거래소구분(3)
  */
 /**
  * [주식] 계좌 - 주식체결_미체결 (초당 2건 제한)

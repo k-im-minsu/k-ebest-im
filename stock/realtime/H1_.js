@@ -47,6 +47,11 @@
  * @property {string} shcode 단축코드(6)
  * @property {string} alloc_gubun 배분적용구분(1)
  * @property {string} volume 누적거래량(12) 
+ * @property {number} midprice 중간가격(8)
+ * @property {number} offermidsumrem 매도중간가잔량합계수량(9)
+ * @property {number} bidmidsumrem 매수중간가잔량합계수량(9)
+ * @property {number} midsumrem 중간가잔량합계수량(9)
+ * @property {number} midsumremgubun 중간가잔량구분(1)''없음 '1'매도 '2'매수
 */
 /** @typedef {(data:H1_)=>void} H1_Func*/
 /**

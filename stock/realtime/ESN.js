@@ -1,11 +1,21 @@
 /**
  * @typedef {Object} ESN [주식] 실시간 시세 - 뉴ELW투자지표민감도
- * @property {string} hotime 호가시간(6)
- * @property {string} tmofferrem 시간외매도잔량(12)
- * @property {string} tmbidrem 시간외매수잔량(12)
- * @property {string} pretmoffercha 시간외매도수량직전대비(12)
- * @property {string} pretmbidcha 시간외매수수량직전대비(12)
- * @property {string} shcode 단축코드(6) 
+ * @property {string} time 시간(6)
+ * @property {string} theoryprice 장중이론가(10.2)
+ * @property {string} delt 델타(7.6)
+ * @property {string} gama 감마(7.6)
+ * @property {string} ceta 세타(12.6)
+ * @property {string} vega 베가(12.6)
+ * @property {string} rhox 로우(12.6)
+ * @property {string} impv 내재변동성(5.2)
+ * @property {string} egearing E.기어링(8.2)
+ * @property {string} shcode 단축코드(6)
+ * @property {string} elwclose ELW현재가(8)
+ * @property {string} sign ELW전일대비구분(1)
+ * @property {string} change ELW전일대비(8)
+ * @property {string} date 일자(8)
+ * @property {string} tickvalue 틱환산(10.2)
+ * @property {string} lp_impv LP내재변동성(5.2) 
 */
 /** @typedef {(data:ESN)=>void} ESNFunc*/
 /**

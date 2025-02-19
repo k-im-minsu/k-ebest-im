@@ -11,6 +11,7 @@
  * @property {string} yofferrem0 예상매도호가수량(12)
  * @property {string} ybidrem0 예상매수호가수량(12)
  * @property {string} shcode 단축코드(6) 
+ * @property {string} exchname 거래소명(3)
 */
 /** @typedef {(data:YK3)=>void} YK3Func*/
 /**

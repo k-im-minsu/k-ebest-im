@@ -66,6 +66,9 @@
  * @property {string} totbidrem 총매수호가잔량(9)
  * @property {string} donsigubun 동시호가구분(1)
  * @property {string} alloc_gubun 배분적용구분(1) 
+ * @property {number} midprice 중간가격(8)
+ * @property {number} offermidsumrem 매도중간가잔량합계수량(9)
+ * @property {number} bidmidsumrem 매수중간가잔량합계수량(9)
 */
 /** @typedef {(data:B7_)=>void} B7_Func*/
 /**

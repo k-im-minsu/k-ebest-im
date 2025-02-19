@@ -29,12 +29,13 @@ const lib=require("k-lib-im");
  * @param {string} vagubun 금액수량구분(1) - 1:수량 2:금액
  * @param {string} bdgubun 시간일별구분(1) - 1:시간별 2:일별
  * @param {number} cnt 조회건수(3) - 
+ * @param {string} exchgubun 거래소구분코드(1)
  * @param {string} tr_cont 연속 거래 여부 [Y,N]
  * @param {string} tr_cont_key 연속일 경우 그전에 내려온 연속키 값 올림
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1664|null>}  실패시 null 반환
  */
-module.exports = async(mgubun="",vagubun="",bdgubun="",cnt=0,tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(mgubun="",vagubun="",bdgubun="",cnt=0,exchgubun="K",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),
@@ -48,7 +49,8 @@ module.exports = async(mgubun="",vagubun="",bdgubun="",cnt=0,tr_cont="N",tr_cont
         "mgubun":mgubun,
         "vagubun":vagubun,
         "bdgubun":bdgubun,
-        "cnt":cnt
+        "cnt":cnt,
+        "exchgubun":exchgubun
        }
     }
   const result= await lib.http.post(__ebestim.url+"/stock/investor",header,body);

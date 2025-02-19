@@ -1,16 +1,15 @@
 /**
  * @typedef {Object} YJ_ [주식] 실시간 시세 - 예상지수
- * @property {string} hotime 호가시간(6)
- * @property {string} yeprice 예상체결가격(8)
- * @property {string} yevolume 예상체결수량(12)
- * @property {string} jnilysign 예상체결가전일종가대비구분(1)
- * @property {string} jnilchange 예상체결가전일종가대비(8)
- * @property {string} jnilydrate 예상체결가전일종가등락율(6.2)
- * @property {string} yofferho0 예상매도호가(8)
- * @property {string} ybidho0 예상매수호가(8)
- * @property {string} yofferrem0 예상매도호가수량(12)
- * @property {string} ybidrem0 예상매수호가수량(12)
- * @property {string} shcode 단축코드(6) 
+ * @property {string} time 시간(6)
+ * @property {string} jisu 예상지수(8.2)
+ * @property {string} sign 예상전일대비구분(1)
+ * @property {string} change 예상전일비(8.2)
+ * @property {string} drate 예상등락율(6.2)
+ * @property {string} cvolume 예상체결량(8)
+ * @property {string} volume 누적거래량(8)
+ * @property {string} value 예상거래대금(8)
+ * @property {string} upcode 업종코드(3) 
+ * 
 */
 /** @typedef {(data:YJ_)=>void} YJ_Func*/
 /**

@@ -1,12 +1,24 @@
 /**
  * @typedef {Object} SHO [주식] 실시간 시세 - 상_하한가이탈
- * @property {string} vi_gubun 구분(0:해제1:정적발동2:동적발동3:정적&동적)(1)
- * @property {string} svi_recprice 정적VI발동기준가격(8)
- * @property {string} dvi_recprice 동적VI발동기준가격(8)
- * @property {string} vi_trgprice VI발동가격(8)
- * @property {string} shcode 단축코드(KEY)(6)
- * @property {string} ref_shcode 참조코드(6)
- * @property {string} time 시간(6) 
+ * @property {string} sijanggubun 거래소/코스닥구분(1)
+ * @property {string} hname 종목명(20)
+ * @property {string} price 현재가(8)
+ * @property {string} sign 전일대비구분(1)
+ * @property {string} change 전일대비(8)
+ * @property {string} drate 등락율(6.2)
+ * @property {string} volume 누적거래량(12)
+ * @property {string} volincrate 거래증가율(12.2)
+ * @property {string} updnlmtprice 상/하한가(8)
+ * @property {string} updnlmtchange 상/하한가대비(8)
+ * @property {string} updnlmtdrate 상/하한가대비율(6.2)
+ * @property {string} jnilvolume 전일거래량(12)
+ * @property {string} shcode 단축코드(6)
+ * @property {string} gwangubun 관리구분(1)
+ * @property {string} undergubun 이상급등구분(1)
+ * @property {string} tgubun 투자유의구분(1)
+ * @property {string} wgubun 우선주구분(1)
+ * @property {string} dishonest 불성실구분(1)
+ * @property {string} jkrate 증거금률(1) 
 */
 /** @typedef {(data:SHO)=>void} SHOFunc*/
 /**

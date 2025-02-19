@@ -1,14 +1,14 @@
 /**
  * @typedef {Object} VI_ [주식] 실시간 시세 - VI발동해제
- * @property {string} time 시간(6)
- * @property {string} jisu 예상지수(8.2)
- * @property {string} sign 예상전일대비구분(1)
- * @property {string} change 예상전일비(8.2)
- * @property {string} drate 예상등락율(6.2)
- * @property {string} cvolume 예상체결량(8)
- * @property {string} volume 누적거래량(8)
- * @property {string} value 예상거래대금(8)
- * @property {string} upcode 업종코드(3) 
+ * @property {string} vi_gubun 구분(0:해제1:정적발동2:동적발동3:정적&동적)(1)
+ * @property {string} svi_recprice 정적VI발동기준가격(8)
+ * @property {string} dvi_recprice 동적VI발동기준가격(8)
+ * @property {string} vi_trgprice VI발동가격(8)
+ * @property {string} shcode 단축코드(KEY)(6)
+ * @property {string} ref_shcode 참조코드(6)
+ * @property {string} time 시간(6) 
+ * @property {string} exchname 거래소명(3)
+ * 
 */
 /** @typedef {(data:VI_)=>void} VI_Func*/
 /**

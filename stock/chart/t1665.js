@@ -10,6 +10,7 @@ const lib=require("k-lib-im");
  * @typedef {Object} t1665_OutBlock [주식] 차트 - 기간별투자자매매추이_챠트 
  * @property {string} mcode 시장코드(8)
  * @property {string} mname 시장명(20)
+ * @property {string} ex_upcode 거래소별업종코드(4)
  */
 /**
  * @typedef {Object} t1665_OutBlock1 [주식] 차트 - 기간별투자자매매추이_챠트 
@@ -54,12 +55,13 @@ const lib=require("k-lib-im");
  * @param {string} gubun3 단위구분(1:일2:주3:월)(1) - 
  * @param {string} from_date 시작날짜(8) - 
  * @param {string} to_date 종료날짜(8) - 
+ * @param {string} exchgubun 거래소구분코드(1)
  * @param {string} tr_cont 연속 거래 여부 [Y,N]
  * @param {string} tr_cont_key 연속일 경우 그전에 내려온 연속키 값 올림
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1665|null>}  실패시 null 반환
  */
-module.exports = async(market="",upcode="",gubun2="",gubun3="",from_date="",to_date="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(market="",upcode="",gubun2="",gubun3="",from_date="",to_date="",exchgubun="K",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),
@@ -75,7 +77,8 @@ module.exports = async(market="",upcode="",gubun2="",gubun3="",from_date="",to_d
         "gubun2":gubun2,
         "gubun3":gubun3,
         "from_date":from_date,
-        "to_date":to_date
+        "to_date":to_date,
+        "exchgubun":exchgubun
        }
     }
   const result= await lib.http.post(__ebestim.url+"/stock/chart",header,body);

@@ -28,6 +28,7 @@ const lib=require("k-lib-im");
  * @property {number} sgta 시가총액(15)
  * @property {number} rate 비중(6.2)
  * @property {string} shcode 종목코드(6)
+ * @property {string} ex_shcode 거래소별단축코드(10)
  */
 /**
  * [주식] 프로그램 - 종목별프로그램매매동향 (초당 1건 제한)

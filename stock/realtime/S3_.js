@@ -26,6 +26,7 @@
  * @property {string} status 장정보(2)
  * @property {string} jnilvolume 전일동시간대거래량(12)
  * @property {string} shcode 단축코드(6) 
+ * @property {string} exchname 거래소명(3)
 */
 /** @typedef {(data:S3_)=>void} S3_Func*/
 /**

@@ -1,21 +1,17 @@
 /**
  * @typedef {Object} YS3 [주식] 실시간 시세 - KOSPI예상체결
- * @property {string} time 시간(6)
- * @property {string} theoryprice 장중이론가(10.2)
- * @property {string} delt 델타(7.6)
- * @property {string} gama 감마(7.6)
- * @property {string} ceta 세타(12.6)
- * @property {string} vega 베가(12.6)
- * @property {string} rhox 로우(12.6)
- * @property {string} impv 내재변동성(5.2)
- * @property {string} egearing E.기어링(8.2)
- * @property {string} shcode 단축코드(6)
- * @property {string} elwclose ELW현재가(8)
- * @property {string} sign ELW전일대비구분(1)
- * @property {string} change ELW전일대비(8)
- * @property {string} date 일자(8)
- * @property {string} tickvalue 틱환산(10.2)
- * @property {string} lp_impv LP내재변동성(5.2) 
+ * @property {string} hotime 호가시간(6)
+ * @property {string} yeprice 예상체결가격(8)
+ * @property {string} yevolume 예상체결수량(12)
+ * @property {string} jnilysign 예상체결가전일종가대비구분(1)
+ * @property {string} jnilchange 예상체결가전일종가대비(8)
+ * @property {string} jnilydrate 예상체결가전일종가등락율(6.2)
+ * @property {string} yofferho0 예상매도호가(8)
+ * @property {string} ybidho0 예상매수호가(8)
+ * @property {string} yofferrem0 예상매도호가수량(12)
+ * @property {string} ybidrem0 예상매수호가수량(12)
+ * @property {string} shcode 단축코드(6) 
+ * @property {string} exchname 거래소명(3)
 */
 /** @typedef {(data:YS3)=>void} YS3Func*/
 /**

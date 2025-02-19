@@ -31,6 +31,7 @@ const lib=require("k-lib-im");
  * @property {number} voldiff 거래량대비율(8.2)
  * @property {number} value 거래대금(15)
  * @property {number} total 시가총액(12)
+ * @property {string} ex_shcode 거래소별단축코드(10)
  */
 /**
  * [주식] 상위종목 - 등락율상위 (초당 1건 제한)
@@ -43,12 +44,13 @@ const lib=require("k-lib-im");
  * @param {number} volume 거래량(12) - 거래량 >= volume
  * @param {number} idx IDX(4) - 처음 조회시는 Space 연속 조회시에 이전 조회한 OutBlock의 idx 값으로 설정
  * @param {number} jc_num2 대상제외2(12) - 기본 => 000000000000 상장지수펀드 => 000000000001 선박투자회사 => 000000000002 스펙 => 000000000004 ETN => 000000000008(0x00000008) 투자주의 => 000000000016(0x00000010) 투자위험 => 000000000032(0x00000020) 위험예고 => 000000000064(0x00000040) 담보불가 => 000000000128(0x00000080) 두개 이상 제외시 해당 값을 합산한다.
+ * @param {string} exchgubun 거래소구분코드(1)
  * @param {string} tr_cont 연속 거래 여부 [Y,N]
  * @param {string} tr_cont_key 연속일 경우 그전에 내려온 연속키 값 올림
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1441|null>}  실패시 null 반환
  */
-module.exports= async(gubun1="",gubun2="",gubun3="",jc_num=0,sprice=0,eprice=0,volume=0,idx=0,jc_num2=0,tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports= async(gubun1="",gubun2="",gubun3="",jc_num=0,sprice=0,eprice=0,volume=0,idx=0,jc_num2=0,exchgubun="K",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),
@@ -67,7 +69,8 @@ module.exports= async(gubun1="",gubun2="",gubun3="",jc_num=0,sprice=0,eprice=0,v
         "eprice":eprice,
         "volume":volume,
         "idx":idx,
-        "jc_num2":jc_num2
+        "jc_num2":jc_num2,
+        "exchgubun":exchgubun
        }
     }
   const result= await lib.http.post(__ebestim.url+"/stock/high-item",header,body);

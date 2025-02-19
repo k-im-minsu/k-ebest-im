@@ -3,7 +3,12 @@ const lib=require("k-lib-im");
  * @typedef {Object} t1308 [주식] 시세 - 주식시간대별체결조회챠트
  * @property {string} rsp_cd tr 코드
  * @property {string} rsp_msg tr 메세지
+ * @property {t1308_OutBlock} t1308OutBlock
  * @property {Array<t1308_OutBlock1>} t1308OutBlock1
+ */
+/**
+ * @typedef {Object} t1308_OutBlock [주식] 시세 - 기간별주가 
+ * @property {string} ex_shcode 거래소별단축코드(10)
  */
 /**
  * @typedef {Object} t1308_OutBlock1 [주식] 시세 - 주식시간대별체결조회챠트 
@@ -30,12 +35,13 @@ const lib=require("k-lib-im");
  * @param {string} starttime 시작시간(4) - 장시작시간 이후(hhmm)
  * @param {string} endtime 종료시간(4) - 장종료시간 이전(hhmm)
  * @param {string} bun_term 분간격(2) - 
+ * @param {string} exchgubun 거래소구분코드(1)
  * @param {string} tr_cont 연속 거래 여부 [Y,N]
  * @param {string} tr_cont_key 연속일 경우 그전에 내려온 연속키 값 올림
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1308|null>}  실패시 null 반환
  */
-module.exports = async(shcode="",starttime="",endtime="",bun_term="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(shcode="",starttime="",endtime="",bun_term="",exchgubun="K",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),
@@ -49,7 +55,8 @@ module.exports = async(shcode="",starttime="",endtime="",bun_term="",tr_cont="N"
         "shcode":shcode,
         "starttime":starttime,
         "endtime":endtime,
-        "bun_term":bun_term
+        "bun_term":bun_term,
+        "exchgubun":exchgubun
        }
     }
   const result= await lib.http.post(__ebestim.url+"/stock/market-data",header,body);

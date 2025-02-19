@@ -26,6 +26,7 @@ const lib=require("k-lib-im");
  * @property {number} mschecnt 매수체결건수(8)
  * @property {number} revolume 순체결량(12)
  * @property {number} rechecnt 순체결건수(8)
+ * @property {string} exchname 거래소명(3)
  */
 /**
  * [주식] 시세 - 주식당일전일분틱조회 (초당 2건 제한)
@@ -34,12 +35,13 @@ const lib=require("k-lib-im");
  * @param {string} shcode 단축코드(6) - 
  * @param {string} endtime 종료시간(4) - 처음 조회시 시간 입력값. t1310OutBlock1.chetime <= endtime 인 데이터 조회됨.
  * @param {string} cts_time 시간CTS(10) - 처음 조회시 Space 다음 조회시 t1310OutBlock.cts_time 값 입력
+ * @param {string} exchgubun 거래소구분코드(1)
  * @param {string} tr_cont 연속 거래 여부 [Y,N]
  * @param {string} tr_cont_key 연속일 경우 그전에 내려온 연속키 값 올림
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1310|null>}  실패시 null 반환
  */
-module.exports= async(daygb="",timegb="",shcode="",endtime="",cts_time="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports= async(daygb="",timegb="",shcode="",endtime="",cts_time="",exchgubun="K",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),
@@ -54,7 +56,8 @@ module.exports= async(daygb="",timegb="",shcode="",endtime="",cts_time="",tr_con
         "timegb":timegb,
         "shcode":shcode,
         "endtime":endtime,
-        "cts_time":cts_time
+        "cts_time":cts_time,
+        "exchgubun":exchgubun
        }
     }
   const result= await lib.http.post(__ebestim.url+"/stock/market-data",header,body);

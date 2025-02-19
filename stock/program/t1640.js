@@ -24,12 +24,13 @@ const lib=require("k-lib-im");
 /**
  * [주식] 프로그램 - 프로그램매매종합조회_미니 (초당 1건 제한)
  * @param {string} gubun 구분(2) - 11#거래소전체 12#거래소차익 13#거래소비차익 21#코스닥전체 22#코스닥차익 23#코스닥비차익
+ * @param {string} exchgubun 거래소구분코드(1)
  * @param {string} tr_cont 연속 거래 여부 [Y,N]
  * @param {string} tr_cont_key 연속일 경우 그전에 내려온 연속키 값 올림
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1640|null>}  실패시 null 반환
  */
-module.exports= async(gubun="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports= async(gubun="",exchgubun="K",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),
@@ -40,7 +41,8 @@ module.exports= async(gubun="",tr_cont="N",tr_cont_key="",mac_address="")=>{
     }
     const body={
     "t1640InBlock":{
-        "gubun":gubun
+        "gubun":gubun,
+        "exchgubun":exchgubun
        }
     }
   const result= await lib.http.post(__ebestim.url+"/stock/program",header,body);

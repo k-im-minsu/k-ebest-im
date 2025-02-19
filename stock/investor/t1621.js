@@ -22,6 +22,7 @@ const lib=require("k-lib-im");
  * @property {string} pefcode 사모펀드투자자코드(4)
  * @property {string} jisucd 기준지수코드(8)
  * @property {string} jisunm 기준지수명(20)
+ * @property {string} ex_upcode 거래소별업종코드(4)
  */
 /**
  * @typedef {Object} t1621_OutBlock1 [주식] 투자자 - 업종별분별투자자매매동향_챠트용 
@@ -63,12 +64,13 @@ const lib=require("k-lib-im");
  * @param {number} nmin N분(2) - 
  * @param {number} cnt 조회건수(3) - 
  * @param {string} bgubun 전일분(1) - 0:당일 1:전일
+ * @param {string} exchgubun 거래소구분코드(1)
  * @param {string} tr_cont 연속 거래 여부 [Y,N]
  * @param {string} tr_cont_key 연속일 경우 그전에 내려온 연속키 값 올림
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1621|null>}  실패시 null 반환
  */
-module.exports = async(upcode="",nmin=0,cnt=0,bgubun="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(upcode="",nmin=0,cnt=0,bgubun="",exchgubun="K",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),
@@ -82,7 +84,8 @@ module.exports = async(upcode="",nmin=0,cnt=0,bgubun="",tr_cont="N",tr_cont_key=
         "upcode":upcode,
         "nmin":nmin,
         "cnt":cnt,
-        "bgubun":bgubun
+        "bgubun":bgubun,
+        "exchgubun":exchgubun
        }
     }
   const result= await lib.http.post(__ebestim.url+"/stock/investor",header,body);

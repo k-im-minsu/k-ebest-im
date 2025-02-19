@@ -33,12 +33,13 @@ const lib=require("k-lib-im");
  * @param {string} prgubun PR적용구분(0:적용안함1:적용)(1) - 0:미적용 1:적용
  * @param {string} orggubun 기관적용(1) - 0:미적용 1:적용
  * @param {string} frggubun 외인적용(1) - 0:미적용 1:적용
+ * @param {string} exchgubun 거래소구분코드(1)
  * @param {string} tr_cont 연속 거래 여부 [Y,N]
  * @param {string} tr_cont_key 연속일 경우 그전에 내려온 연속키 값 올림
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1716|null>}  실패시 null 반환
  */
-module.exports = async(shcode="",gubun="",fromdt="",todt="",prapp=0,prgubun="",orggubun="",frggubun="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(shcode="",gubun="",fromdt="",todt="",prapp=0,prgubun="",orggubun="",frggubun="",exchgubun="K",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),
@@ -56,7 +57,8 @@ module.exports = async(shcode="",gubun="",fromdt="",todt="",prapp=0,prgubun="",o
         "prapp":prapp,
         "prgubun":prgubun,
         "orggubun":orggubun,
-        "frggubun":frggubun
+        "frggubun":frggubun,
+        "exchgubun":exchgubun
        }
     }
   const result= await lib.http.post(__ebestim.url+"/stock/frgr-itt",header,body);

@@ -11,6 +11,7 @@ const lib=require("k-lib-im");
  * @property {number} cnt CNT(4)
  * @property {string} date 날짜(8)
  * @property {number} idx IDX(4)
+ * @property {string} ex_shcode 거래소별단축코드(10)
  */
 /**
  * @typedef {Object} t1305_OutBlock1 [주식] 시세 - 기간별주가 
@@ -50,12 +51,13 @@ const lib=require("k-lib-im");
  * @param {string} date 날짜(8) - 처음 조회시는 Space 연속 조회시에 이전 조회한 OutBlock의 date 값으로 설정
  * @param {number} idx IDX(4) - 사용안함(Space)
  * @param {number} cnt 건수(4) - 1 이상
+ * @param {string} exchgubun 거래소구분코드(1)
  * @param {string} tr_cont 연속 거래 여부 [Y,N]
  * @param {string} tr_cont_key 연속일 경우 그전에 내려온 연속키 값 올림
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1305|null>}  실패시 null 반환
  */
-module.exports = async(shcode="",dwmcode=0,date="",idx=0,cnt=0,tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(shcode="",dwmcode=0,date="",idx=0,cnt=0,exchgubun="K",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),
@@ -70,7 +72,8 @@ module.exports = async(shcode="",dwmcode=0,date="",idx=0,cnt=0,tr_cont="N",tr_co
         "dwmcode":dwmcode,
         "date":date,
         "idx":idx,
-        "cnt":cnt
+        "cnt":cnt,
+        "exchgubun":exchgubun
        }
     }
   const result= await lib.http.post(__ebestim.url+"/stock/market-data",header,body);

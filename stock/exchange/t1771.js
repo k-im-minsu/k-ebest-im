@@ -37,12 +37,13 @@ const lib=require("k-lib-im");
  * @param {string} traddate2 거래원날짜2(8) - 일별 조회시 사용 OutBlock1.traddate <= InBlock.traddate2
  * @param {number} cts_idx CTSIDX(4) - 처음 조회시 Space 입력 다음 조회시 OutBlock의 cts_idx 값을 입력
  * @param {number} cnt 요청건수(3) - 
+ * @param {string} exchgubun 거래소구분코드(1)
  * @param {string} tr_cont 연속 거래 여부 [Y,N]
  * @param {string} tr_cont_key 연속일 경우 그전에 내려온 연속키 값 올림
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1771|null>}  실패시 null 반환
  */
-module.exports = async(shcode="",tradno="",gubun1="",traddate1="",traddate2="",cts_idx=0,cnt=0,tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(shcode="",tradno="",gubun1="",traddate1="",traddate2="",cts_idx=0,cnt=0,exchgubun="K",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),
@@ -59,7 +60,8 @@ module.exports = async(shcode="",tradno="",gubun1="",traddate1="",traddate2="",c
         "traddate1":traddate1,
         "traddate2":traddate2,
         "cts_idx":cts_idx,
-        "cnt":cnt
+        "cnt":cnt,
+        "exchgubun":exchgubun
        }
     }
   const result= await lib.http.post(__ebestim.url+"/stock/exchange",header,body);

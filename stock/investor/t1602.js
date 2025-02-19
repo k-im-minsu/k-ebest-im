@@ -69,6 +69,7 @@ const lib=require("k-lib-im");
  * @property {number} md_00 사모펀드매도(12)
  * @property {number} rate_00 사모펀드증감(12)
  * @property {number} svolume_00 사모펀드순매수(12)
+ * @property {string} ex_upcode 거래소별업종코드(4)
  */
 /**
  * @typedef {Object} t1602_OutBlock1 [주식] 투자자 - 시간대별투자자매매추이 
@@ -96,12 +97,13 @@ const lib=require("k-lib-im");
  * @param {number} cts_idx CTSIDX(4) - 사용안함
  * @param {number} cnt 조회건수(4) - 
  * @param {string} gubun3 직전대비구분(C:직전대비)(1) - 
+ * @param {string} exchgubun 거래소구분코드(1)
  * @param {string} tr_cont 연속 거래 여부 [Y,N]
  * @param {string} tr_cont_key 연속일 경우 그전에 내려온 연속키 값 올림
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1602|null>}  실패시 null 반환
  */
-module.exports = async(market="",upcode="",gubun1="",gubun2="",cts_time="",cts_idx=0,cnt=0,gubun3="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(market="",upcode="",gubun1="",gubun2="",cts_time="",cts_idx=0,cnt=0,gubun3="",exchgubun="K",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),
@@ -119,7 +121,8 @@ module.exports = async(market="",upcode="",gubun1="",gubun2="",cts_time="",cts_i
         "cts_time":cts_time,
         "cts_idx":cts_idx,
         "cnt":cnt,
-        "gubun3":gubun3
+        "gubun3":gubun3,
+        "exchgubun":exchgubun
        }
     }
   const result= await lib.http.post(__ebestim.url+"/stock/investor",header,body);

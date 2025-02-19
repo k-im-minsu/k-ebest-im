@@ -93,6 +93,11 @@ const lib=require("k-lib-im");
  * @property {number} open 시가(8)
  * @property {number} high 고가(8)
  * @property {number} low 저가(8)
+ * @property {number} krx_midprice KRX중간가격(8)
+ * @property {number} krx_offermidsumrem KRX매도중간가잔량합계수량(9)
+ * @property {number} krx_bidmidsumrem KRX매수중간가잔량합계수량(9)
+ * @property {number} krx_midsumrem KRX중간가잔량합계수량(9)
+ * @property {string} krx_midsumremgubun KRX중간가잔량구분(1)
  */
 /**
  * [주식] 시세 - 주식현재가호가조회 (초당 3건 제한)

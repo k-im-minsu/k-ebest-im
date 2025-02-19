@@ -20,6 +20,7 @@ const lib=require("k-lib-im");
  * [주식] 시세 - 주식현재가시세메모 (초당 3건 제한)
  * @param {string} code 종목코드(6) - 
  * @param {string} nrec 건수(2) - t1104InBlock1 의 개수
+ * @param {string} exchgubun 거래소구분코드(1)
  * @param {string} indx 인덱스(1) - t1104InBlock1 의 Occurs Index(0부터 시작)
  * @param {string} gubn 조건구분(1) - 1:시세 2:최고저가 3:Pivot 4:이동평균선
  * @param {string} dat1 데이타1(1) - 1:시가 2:고가 3:저가 4:가중평균가
@@ -29,7 +30,7 @@ const lib=require("k-lib-im");
  * @param {string} mac_address 	법인인 경우 필수 세팅
  * @returns {Promise<t1104|null>}  실패시 null 반환
  */
-module.exports = async(code="",nrec="",indx="",gubn="",dat1="",dat2="",tr_cont="N",tr_cont_key="",mac_address="")=>{
+module.exports = async(code="",nrec="",exchgubun="K",indx="",gubn="",dat1="",dat2="",tr_cont="N",tr_cont_key="",mac_address="")=>{
     const header={
         "content-type":"application/json; charset=UTF-8",
         "authorization":await __ebestim.get_token(),
@@ -43,6 +44,7 @@ module.exports = async(code="",nrec="",indx="",gubn="",dat1="",dat2="",tr_cont="
     "t1104InBlock1":{
         "code":code,
         "nrec":nrec,
+        "exchgubun":exchgubun,
         "indx":indx,
         "gubn":gubn,
         "dat1":dat1,

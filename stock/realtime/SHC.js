@@ -17,7 +17,8 @@
  * @property {string} tgubun 투자유의구분(1)
  * @property {string} wgubun 우선주구분(1)
  * @property {string} dishonest 불성실구분(1)
- * @property {string} jkrate 증거금률(1) 
+ * @property {string} jkrate 증거금률(1)
+ * @property {string} updnlmtdaycnt 상한가/하한가연속일수(3) 
 */
 /** @typedef {(data:SHC)=>void} SHCFunc*/
 /**

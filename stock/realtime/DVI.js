@@ -7,6 +7,7 @@
  * @property {string} shcode 단축코드(KEY)(6)
  * @property {string} ref_shcode 참조코드(미사용)(6)
  * @property {string} time 시간(6) 
+ * @property {string} exchname 거래소명(3)
 */
 /** @typedef {(data:DVI)=>void} DVIFunc*/
 /**
