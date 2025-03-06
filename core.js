@@ -74,6 +74,11 @@ const reconnect_interval=1000;
 let socket;
 var isconnect=false;
 var result_event={}
+setInterval(() => {
+    if(isconnect){
+        socket.ping()
+    }
+}, 5000);
 if(usesocket){
     var connect=()=>{
         if(ismoyee){
