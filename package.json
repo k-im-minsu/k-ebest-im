@@ -1,6 +1,6 @@
 {
   "name": "k-ebest-im",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "LS 투자증권 OPEN API Library",
   "main": "ebest.js",
   "repository": {

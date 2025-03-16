@@ -22,6 +22,8 @@ module.exports=(function(){
     this.시간별예상체결가=require("./t1486.js")
     this.예상체결가등락율상위조회=require("./t1488.js")
     this.API용주식멀티현재가조회=require("./t8407.js")
+    this.통합_주식현재가호가조회2API용=require("./t8450.js")
+    this.통합_주식시간대별체결2API용=require("./t8454.js")
     this.주식마스터조회API용=require("./t9945.js")
     return this;
 })();

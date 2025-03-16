@@ -12,6 +12,7 @@ const lib=require("k-lib-im");
  * @property {string} expcode 확장코드(12)
  * @property {string} etfchk ETF구분(1)
  * @property {string} filler filler(5)
+ * @property {string} nxt_chk 1:NXT 거래소 제공 0:NXT 거래소 미제공(1)
  */
 /**
  * [주식] 시세 - 주식마스터조회API용 (초당 2건 제한)
